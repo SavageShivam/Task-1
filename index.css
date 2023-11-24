@@ -1,0 +1,10 @@
+th td {
+  border: none;
+}
+input {
+  outline: none;
+  border: none;
+}
+table {
+  border-spacing: 0;
+}

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>React Data Table</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Provided CDN Links  -->
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <!-- Babel CDN  -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      const { useState } = React;
+
+      function DataTable() {
+        // Demo Data for Mapping
+        const [data, setData] = useState([
+          {
+            id: 1,
+            name: "On Boarding Call",
+            val1: "demo-1",
+            val2: "demo-2",
+            val3: "demo-3",
+            val4: "demo-4",
+            val5: "demo-5",
+            val6: "demo-6",
+          },
+          {
+            id: 2,
+            name: "Google Search Console Access",
+            val1: "demo-1",
+            val2: "demo-2",
+            val3: "demo-3",
+            val4: "demo-4",
+            val5: "demo-5",
+            val6: "demo-6",
+          },
+          {
+            id: 3,
+            name: "Google Analatics Access",
+            val1: "demo-1",
+            val2: "demo-2",
+            val3: "demo-3",
+            val4: "demo-4",
+            val5: "demo-5",
+            val6: "demo-6",
+          },
+          {
+            id: 4,
+            name: "Website Access",
+            val1: "demo-1",
+            val2: "demo-2",
+            val3: "demo-3",
+            val4: "demo-4",
+            val5: "demo-5",
+            val6: "demo-6",
+          },
+          {
+            id: 5,
+            name: "Technical Audit",
+            val1: "demo-1",
+            val2: "demo-2",
+            val3: "demo-3",
+            val4: "demo-4",
+            val5: "demo-5",
+            val6: "demo-6",
+          },
+          {
+            id: 6,
+            name: "Anchor Text Semantic Analysis",
+            val1: "demo-1",
+            val2: "demo-2",
+            val3: "demo-3",
+            val4: "demo-4",
+            val5: "demo-5",
+            val6: "demo-6",
+          },
+          {
+            id: 6,
+            name: "Anchor Text / URL Mapping",
+            val1: "demo-1",
+            val2: "demo-2",
+            val3: "demo-3",
+            val4: "demo-4",
+            val5: "demo-5",
+            val6: "demo-6",
+          },
+          {
+            id: 7,
+            name: "Google Data Studio Report + Local Reporting Suite",
+            val1: "demo-1",
+            val2: "demo-2",
+            val3: "demo-3",
+            val4: "demo-4",
+            val5: "demo-5",
+            val6: "demo-6",
+          },
+          {
+            id: 8,
+            name: "Site level Optimisation",
+            val1: "demo-1",
+            val2: "demo-2",
+            val3: "demo-3",
+            val4: "demo-4",
+            val5: "demo-5",
+            val6: "demo-6",
+          },
+          {
+            id: 9,
+            name: "On Page Optimisation",
+            val1: "demo-1",
+            val2: "demo-2",
+            val3: "demo-3",
+            val4: "demo-4",
+            val5: "demo-5",
+            val6: "demo-6",
+          },
+          {
+            id: 10,
+            name: "Content Creation",
+            val1: "demo-1",
+            val2: "demo-2",
+            val3: "demo-3",
+            val4: "demo-4",
+            val5: "demo-5",
+            val6: "demo-6",
+          },
+          {
+            id: 11,
+            name: "Content Publishing",
+            val1: "demo-1",
+            val2: "demo-2",
+            val3: "demo-3",
+            val4: "demo-4",
+            val5: "demo-5",
+            val6: "demo-6",
+          },
+          {
+            id: 12,
+            name: "Premium Press Release",
+            val1: "demo-1",
+            val2: "demo-2",
+            val3: "demo-3",
+            val4: "demo-4",
+            val5: "demo-5",
+            val6: "demo-6",
+          },
+          {
+            id: 13,
+            name: "Authority Niche Placement",
+            val1: "demo-1",
+            val2: "demo-2",
+            val3: "demo-3",
+            val4: "demo-4",
+            val5: "demo-5",
+            val6: "demo-6",
+          },
+          {
+            id: 14,
+            name: "Review Management",
+            val1: "demo-1",
+            val2: "demo-2",
+            val3: "demo-3",
+            val4: "demo-4",
+            val5: "demo-5",
+            val6: "demo-6",
+          },
+          {
+            id: 15,
+            name: "Index Links",
+            val1: "demo-1",
+            val2: "demo-2",
+            val3: "demo-3",
+            val4: "demo-4",
+            val5: "demo-5",
+            val6: "demo-6",
+          },
+          {
+            id: 16,
+            name: "Video Reacp",
+            val1: "demo-1",
+            val2: "demo-2",
+            val3: "demo-3",
+            val4: "demo-4",
+            val5: "demo-5",
+            val6: "demo-6",
+          },
+        ]);
+
+        const handleCellEdit = (rowIndex, columnName, value) => {
+          const updatedData = [...data];
+          updatedData[rowIndex][columnName] = value;
+          setData(updatedData);
+          console.log(updatedData);
+        };
+
+        return (
+          <div>
+            <h2 style={{ textAlign: "center" }}>Data Table</h2>
+            <table border="1" style={{ margin: "auto", textAlign: "center" }}>
+              <thead>
+                <tr>
+                  <th colSpan={7}>Month 1</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((item, rowIndex) => (
+                  <tr>
+                    <th>
+                      <td>{item.name}</td>
+                    </th>
+                    <td>
+                      <input
+                        type="text"
+                        value={item.val1}
+                        onChange={(e) =>
+                          handleCellEdit(rowIndex, "val1", e.target.value)
+                        }
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="text"
+                        value={item.val2}
+                        onChange={(e) =>
+                          handleCellEdit(rowIndex, "val2", e.target.value)
+                        }
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="text"
+                        value={item.val3}
+                        onChange={(e) =>
+                          handleCellEdit(rowIndex, "val3", e.target.value)
+                        }
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="text"
+                        value={item.val4}
+                        onChange={(e) =>
+                          handleCellEdit(rowIndex, "val4", e.target.value)
+                        }
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="text"
+                        value={item.val5}
+                        onChange={(e) =>
+                          handleCellEdit(rowIndex, "val5", e.target.value)
+                        }
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="text"
+                        value={item.val6}
+                        onChange={(e) =>
+                          handleCellEdit(rowIndex, "val6", e.target.value)
+                        }
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        );
+      }
+
+      ReactDOM.render(<DataTable />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
